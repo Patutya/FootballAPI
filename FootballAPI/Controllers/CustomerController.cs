@@ -1,5 +1,4 @@
 ﻿using FootballAPI.Models;
-using FootballAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FootballAPI.Controllers
