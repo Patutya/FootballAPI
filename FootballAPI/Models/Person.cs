@@ -6,5 +6,6 @@
         public int Age { get; set; }
         public string Surname { get; internal set; }
         public int Money { get; internal set; }
+        public bool valid;
     }
 }

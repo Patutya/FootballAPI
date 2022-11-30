@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FootballAPI.Models;
+using FootballAPI.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FootballAPI.Controllers
 {
@@ -6,14 +8,15 @@ namespace FootballAPI.Controllers
     [Route("[controller]")]
     public class CustomerController : ControllerBase
     {
-        [HttpGet(Name = "GetAllCustomers")]
 
-        public IEnumerable<Models.Person> GetAllCustomers([FromQuery] Models.Person person)
+        private ICustomerService _customerService;
+
+        public CustomerController(ICustomerService customer)
         {
-            return Enumerable.Range(1, 5).Select(index => new Models.Person
-            {
-            })
-            .ToArray();
+            _customerService = customer;
         }
+
+        [HttpGet(Name = "BettingValidAge")]
+        public string ValidAge([FromQuery] Person person) => _customerService.ValidAge(person);
     }
 }
